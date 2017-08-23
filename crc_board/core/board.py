@@ -1,7 +1,7 @@
 from flask_restful import abort
 from sqlalchemy import UniqueConstraint, func, TIMESTAMP, ForeignKey
 
-from crc_card import db
+from crc_board import db
 
 class Board(db.Model):
     __tablename__ = 'boards'

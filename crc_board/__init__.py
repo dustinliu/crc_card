@@ -13,10 +13,10 @@ else:
 
 db = SQLAlchemy(app)
 
-from crc_card.web.view import web
+from crc_board.web.view import web
 app.register_blueprint(web)
 
-from crc_card.api.resources import api_board
+from crc_board.api.resources import api_board
 
 app.register_blueprint(api_board)
 

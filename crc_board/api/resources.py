@@ -2,8 +2,8 @@
 from flask import Blueprint
 from flask_restful import Api, Resource, reqparse, fields, marshal_with, abort
 
-from crc_card import db
-from crc_card.core.board import Board
+from crc_board import db
+from crc_board.core.board import Board
 
 board_fields = {
     'id': fields.Integer,
