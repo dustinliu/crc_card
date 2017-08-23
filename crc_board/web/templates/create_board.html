@@ -1,11 +1,34 @@
 {%  extends "nav.html" %}
 {% block body %}
-        <div id="create_board">
-        <h1>Create Board</h1>
+    <div class="container">
+        <div class="form">
+            <h1 class="center">Create Board</h1>
             <form name="create_board">
-                <input placeholder="name" name="name"><br>
-                <textarea placeholder="description" name="desc"></textarea>
+                <input id="name" placeholder="name" name="name"><br>
+                <textarea id="desc" placeholder="description" name="desc"></textarea>
+                <button type="button" onclick="create()">create</button>
             </form>
         </div>
     </div>
+
+    <script>
+    function create() {
+        var name = $('#name').val();
+        var desc = $('#desc').val();
+        $.ajax({
+                    type: 'POST',
+                    url: '/api/boards',
+                    dataType: 'json',
+                    data: { name: name, description: desc},
+                    success: function () {
+                        console.log('success')
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
+        window.location.replace("{{ url_for('.index') }}");
+    }
+    </script>
 {% endblock %}

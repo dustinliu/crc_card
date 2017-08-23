@@ -7,7 +7,7 @@
         <div class="card_desc">
             <p>{{ board.description }}</p>
         </div>
-        <div class="card_footer">total cards: 5</div>
+        <div class="card_footer">total cards: {{ board.cards|length }}</div>
     </div>
     {% endfor%}
 </div>
