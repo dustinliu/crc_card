@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>CRC Board</title>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Asap" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href="{{ url_for('web.static', filename='crc_board.css') }}">
 </head>
 <body>
-<div class="navx">
-    <a herf="/">Home</a>
-    <a href="/board">board</a>
-</div>
 <div class="container">
+    {% for board in boards %}
     <div class="card">
-        <div class="card_title">With rounded corners:</div>
+        <div class="card_title"><a href="{{ url_for('.show_board', id_or_name=board.id) }}">{{ board.name }}</a></div>
         <div class="card_desc">
-            <p> Go to our CSS Shadow Effects Tutorial to learn more about shadows.</p>
+            <p>{{ board.description }}</p>
         </div>
+        <div class="card_footer">total cards: 5</div>
     </div>
+    {% endfor%}
 </div>
 </body>
 </html>

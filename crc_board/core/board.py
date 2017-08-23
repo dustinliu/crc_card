@@ -8,10 +8,10 @@ class Board(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(32), nullable=False)
     description = db.Column(db.String(256))
+    cards = db.relationship('Card')
     created_time = db.Column(db.TIMESTAMP, server_default=func.now())
     updated_time = db.Column(db.TIMESTAMP, server_default=func.now(),
                             server_onupdate=func.current_timestamp())
-    cards = db.relationship('Card')
     __table_args__ = (UniqueConstraint('name', name='uc_name'),)
 
     @staticmethod

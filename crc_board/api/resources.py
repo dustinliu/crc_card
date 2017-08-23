@@ -5,7 +5,7 @@ from flask_restful import Api, Resource, reqparse, fields, marshal_with, abort
 from crc_board import db
 from crc_board.core.board import Board
 
-board_fields = {
+card_fields = {
     'id': fields.Integer,
     'name': fields.String,
     'description': fields.String,
@@ -13,9 +13,10 @@ board_fields = {
     'updated_time': fields.DateTime(dt_format='iso8601'),
 }
 
-card_fields = {
+board_fields = {
     'id': fields.Integer,
     'name': fields.String,
+    'cards': fields.Nested(card_fields),
     'description': fields.String,
     'created_time': fields.DateTime(dt_format='iso8601'),
     'updated_time': fields.DateTime(dt_format='iso8601'),
@@ -77,5 +78,5 @@ class CardResource(Resource):
 
 api_board = Blueprint('api', __name__, url_prefix='/api')
 api = Api(api_board)
-api.add_resource(BoardResource, '/board/<int:id>')
-api.add_resource(BoardListResource, '/board')
+api.add_resource(BoardResource, '/boards/<int:id>')
+api.add_resource(BoardListResource, '/boards')

@@ -101,6 +101,6 @@ ENV/
 .mypy_cache/
 
 .idea/
-crc_card.db
+crc_board.db
 
 .DS_Store
