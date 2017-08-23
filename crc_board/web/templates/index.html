@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>CRC Board</title>
-    <link href="https://fonts.googleapis.com/css?family=Anton|Asap" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' href="{{ url_for('web.static', filename='crc_board.css') }}">
-</head>
-<body>
+{%  extends "nav.html" %}
+{% block body %}
 <div class="container">
     {% for board in boards %}
     <div class="card">
@@ -18,5 +11,4 @@
     </div>
     {% endfor%}
 </div>
-</body>
-</html>
+{% endblock %}

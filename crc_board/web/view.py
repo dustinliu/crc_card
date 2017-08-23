@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from crc_board import app
 import requests
 
@@ -7,9 +7,13 @@ web = Blueprint('web', __name__, url_prefix='/',
                      static_folder='static',
                     static_url_path='assets')
 
-@web.route('/boards/<id_or_name>', methods=['GET'])
+@web.route('boards/<id_or_name>', methods=['GET'])
 def show_board(id_or_name):
     return render_template('index.html')
+
+@web.route('create_board', methods=['GET'])
+def create_board():
+    return render_template("create_board.html")
 
 @web.route('/', methods=['GET'])
 def index():
