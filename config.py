@@ -15,4 +15,4 @@ class dev(default):
 
 # production setting
 class prod(default):
-    BASE_URL = "http://member.ap-northeast-1.elasticbeanstalk.com"
+    BASE_URL = "https://crc-board.herokuapp.com"
