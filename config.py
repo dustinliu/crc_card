@@ -16,3 +16,4 @@ class dev(default):
 # production setting
 class prod(default):
     BASE_URL = "https://crc-board.herokuapp.com"
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')

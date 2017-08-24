@@ -12,7 +12,6 @@ class Board(db.Model):
     created_time = db.Column(db.TIMESTAMP, server_default=func.now())
     updated_time = db.Column(db.TIMESTAMP, server_default=func.now(),
                             server_onupdate=func.current_timestamp())
-    __table_args__ = (UniqueConstraint('name', name='uc_name'),)
 
     @staticmethod
     def create(name, description=None):
@@ -31,7 +30,7 @@ class Card(db.Model):
     __tablename__ = 'cards'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(32), nullable=False)
-    responsibilities = db.Column(db.CLOB)
+    resps = db.relationship('Resp')
     board_id = db.Column(db.INTEGER,
                          ForeignKey('boards.id',onupdate="CASCADE", ondelete="CASCADE"),
                          nullable=False
@@ -39,4 +38,15 @@ class Card(db.Model):
     created_time = db.Column(TIMESTAMP, server_default=func.now())
     updated_time = db.Column(TIMESTAMP, server_default=func.now(),
                             onupdate=func.current_timestamp())
-    __table_args__ = (UniqueConstraint('name', name='uc_name'),)
+
+class Resp(db.Model):
+    __tablename__ = 'resps'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    description = db.Column(db.String(1024))
+    card_id = db.Column(db.INTEGER,
+                         ForeignKey('cards.id',onupdate="CASCADE", ondelete="CASCADE"),
+                         nullable=False
+                         )
+    created_time = db.Column(TIMESTAMP, server_default=func.now())
+    updated_time = db.Column(TIMESTAMP, server_default=func.now(),
+                             onupdate=func.current_timestamp())
