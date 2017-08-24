@@ -1,5 +1,4 @@
-from flask_restful import abort
-from sqlalchemy import UniqueConstraint, func, TIMESTAMP, ForeignKey
+from sqlalchemy import func, TIMESTAMP, ForeignKey
 
 from crc_board import db
 
@@ -24,7 +23,6 @@ class Board(db.Model):
         db.session.flush()
         db.session.commit()
         return board
-
 
 class Card(db.Model):
     __tablename__ = 'cards'
