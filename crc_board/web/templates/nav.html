@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>CRC Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Anton|Asap|Roboto:300" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href="{{ url_for('web.static', filename='crc_board.css') }}">
     <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.min.css">
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" async></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" async></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{{ url_for('web.static', filename='board.js') }}"></script>
 </head>
 <body>
 <div class="topnav" id="myTopnav">

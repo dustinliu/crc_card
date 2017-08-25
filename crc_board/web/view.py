@@ -7,9 +7,10 @@ web = Blueprint('web', __name__, url_prefix='/',
                      static_folder='static',
                     static_url_path='assets')
 
-@web.route('boards/<id_or_name>', methods=['GET'])
-def show_board(id_or_name):
-    return render_template('index.html')
+@web.route('boards/<id>', methods=['GET'])
+def show_board(id):
+    r = requests.get(app.config['BASE_URL'] + '/api/boards/' + id)
+    return render_template('board.html', board=r.json)
 
 @web.route('create_board', methods=['GET'])
 def create_board():

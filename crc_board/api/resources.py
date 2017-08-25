@@ -56,14 +56,6 @@ class BoardListResource(Resource):
 
 
 class CardResource(Resource):
-    @marshal_with(card_fields)
-    def get(self, id):
-        board = Board.query.get(id)
-        if not board:
-            abort(404)
-
-        return board, 200
-
     @marshal_with(board_fields)
     def delete(self, id):
         board = Board.query.get(id)

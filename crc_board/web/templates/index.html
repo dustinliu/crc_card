@@ -3,7 +3,9 @@
 <div class="container">
     {% for board in boards %}
     <div class="card">
-        <div class="card_title"><a href="{{ url_for('.show_board', id_or_name=board.id) }}">{{ board.name }}</a></div>
+        <div class="card_title">
+            <a href="{{ url_for('.show_board', id=board.id) }}">{{ board.name }}</a>
+        </div>
         <div class="card_desc">
             <p>{{ board.description }}</p>
         </div>

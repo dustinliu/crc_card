@@ -1,3 +1,19 @@
 {% extends "nav.html" %}
 {% block body %}
+    <div class="container sortable">
+        <button class="ui-button ui-widget ui-corner-all">create card</button>
+        {% for card in board.cards %}
+            <div class="card">
+                <div class="card_title">{{ card.name }}</div>
+                <div class="card_desc">
+                    <ol>
+                        {% for resp in card.resps %}
+                            <li>resp</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
+
