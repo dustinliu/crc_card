@@ -118,13 +118,19 @@ ol {
 
 .card_desc {
     height: 60%;
-}
-
-.card_desc p {
     padding: 5px 10px 5px 10px;
     font-size: 85%;
     font-family: 'Asap', sans-serif;
     color: dimgrey;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card_footer {

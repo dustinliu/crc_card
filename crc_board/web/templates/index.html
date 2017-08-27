@@ -7,7 +7,7 @@
             <a href="{{ url_for('.show_board', id=board.id) }}">{{ board.name }}</a>
         </div>
         <div class="card_desc">
-            <p>{{ board.description }}</p>
+            {{ board.description }}
         </div>
         <div class="card_footer">total cards: {{ board.cards|length }}</div>
     </div>
