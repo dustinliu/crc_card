@@ -1,7 +1,7 @@
 {% extends "nav.html" %}
 {% block body %}
+    <button type="button">create card</button>
     <div class="container sortable">
-        <button class="ui-button ui-widget ui-corner-all">create card</button>
         {% for card in board.cards %}
             <div class="card">
                 <div class="card_title">{{ card.name }}</div>

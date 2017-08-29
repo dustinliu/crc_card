@@ -37,6 +37,17 @@ class Card(db.Model):
     updated_time = db.Column(TIMESTAMP, server_default=func.now(),
                             onupdate=func.current_timestamp())
 
+    @staticmethod
+    def create(name, board_id):
+        card = Card()
+        card.name = name
+        card.board_id = board_id
+
+        db.session.add(card)
+        db.session.flush()
+        db.session.commit()
+        return card
+
 class Resp(db.Model):
     __tablename__ = 'resps'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
