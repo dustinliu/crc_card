@@ -1,11 +1,29 @@
 $( function() {
     $( '.sortable' ).sortable();
     $( '.sortable' ).disableSelection();
+    $('.popup').dialog({
+        autoOpen: false,
+        width: 600,
+        modal: true,
+        title: 'Create Board'
+        // buttons: [
+        //     {
+        //         text: "Create",
+        //         click: create_board()
+        //
+        //         // Uncommenting the following line would hide the text,
+        //         // resulting in the label being used as a tooltip
+        //         //showText: false
+        //     }
+        // ]
+    });
 } );
 
 
 function show_create() {
-    $('.form').css({'display': 'inline-block'})
+    $('.popup').dialog('open');
+    // $('.popup').css({'z-index': '99'});
+    // $('.popup').css({'display': 'block'});
 }
 
 
@@ -25,5 +43,6 @@ function create_board() {
             console.log(thrownError);
         }
     });
-    window.location.replace("{{ url_for('.index') }}");
+
+    window.location.replace("/");
 }
