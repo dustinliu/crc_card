@@ -30,7 +30,6 @@
     width: auto;
     height: auto;
     padding: 2% 10% 2% 10%;
-    text-align: center;
     position: relative;
 }
 
@@ -105,8 +104,13 @@
     color: azure;
 }
 
-.card_title a {
+.indent {
+    vertical-align: middle;
+    line-height: normal;
     padding: 5px 10px 5px 10px;
+}
+
+.card_title a {
     text-decoration: none;
     color: azure;
 }
@@ -121,19 +125,11 @@ ol {
 
 .card_desc {
     height: 60%;
-    padding: 5px 10px 5px 10px;
     font-size: 85%;
     font-family: 'Asap', sans-serif;
     color: dimgrey;
-    overflow: hidden;
+    overflow: scroll;
     text-overflow: ellipsis;
-}
-
-.truncate {
-  width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .card_footer {

@@ -7,12 +7,12 @@
         {% for board in boards %}
             <div class="card">
                 <div class="card_title">
-                    <a href="{{ url_for('.show_board', id=board.id) }}">{{ board.name }}</a>
+                    <span class="indent"><a href="{{ url_for('.show_board', id=board.id) }}">{{ board.name }}</a></span>
                 </div>
                 <div class="card_desc">
-                    {{ board.description }}
+                    <p class="indent">{{ board.description }}</p>
                 </div>
-                <div class="card_footer">total cards: {{ board.cards|length }}</div>
+                <div class="card_footer"><span class="indent">total cards: {{ board.cards|length }}</span></div>
             </div>
         {% endfor%}
     </div>

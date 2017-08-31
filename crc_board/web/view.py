@@ -12,10 +12,6 @@ def show_board(id):
     r = requests.get(app.config['BASE_URL'] + '/api/boards/' + id)
     return render_template('board.html', board=r.json())
 
-@web.route('create_board', methods=['GET'])
-def create_board():
-    return render_template("create_board.html")
-
 @web.route('/', methods=['GET'])
 def index():
     r = requests.get(app.config['BASE_URL'] + '/api/boards')
