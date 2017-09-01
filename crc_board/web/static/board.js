@@ -22,8 +22,6 @@ $( function() {
 
 function show_create() {
     $('.popup').dialog('open');
-    // $('.popup').css({'z-index': '99'});
-    // $('.popup').css({'display': 'block'});
 }
 
 
@@ -45,4 +43,22 @@ function create_board() {
     });
 
     window.location.replace("/");
+}
+
+function create_card(id) {
+    var name = $('#card_name').val();
+    $.ajax({
+        type: 'POST',
+        url: '/api/cards',
+        dataType: 'json',
+        data: { name: name, board_id: id},
+        success: function () {
+        },
+        error: function (error) {
+            console.log(error.status);
+            console.log(error.responseJSON.message);
+        }
+    });
+
+    window.location.reload();
 }

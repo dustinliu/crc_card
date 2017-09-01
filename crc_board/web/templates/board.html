@@ -1,6 +1,6 @@
 {% extends "nav.html" %}
 {% block body %}
-    <button type="button">create card</button>
+    <button type="button" onclick="show_create()">create card</button>
     <div class="container sortable">
         {% for card in board.cards %}
             <div class="card">
@@ -14,6 +14,13 @@
                 </div>
             </div>
         {% endfor %}
+    </div>
+    <div class="popup">
+        <h1 class="center">Create Card</h1>
+        <form>
+            <input id="card_name" placeholder="name"><br>
+            <button type="button" onclick="create_card({{ board.id }})">create</button>
+        </form>
     </div>
 {% endblock %}
 
